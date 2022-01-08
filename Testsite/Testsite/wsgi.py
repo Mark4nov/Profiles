@@ -1,5 +1,5 @@
 """
-WSGI config for Profiles project.
+WSGI config for Testsite project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
