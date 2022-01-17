@@ -1,0 +1,13 @@
+{% extends 'accounts/configs/interface.html' %}
+
+{% block config %}
+    <h2>User settings:</h2>
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            {{field.label_tag}}
+            {{field}}
+        {% endfor %}
+        <input type="submit" value="Save">
+    </form>
+{% endblock config %}

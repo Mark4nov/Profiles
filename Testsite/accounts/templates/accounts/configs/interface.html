@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <h2>Account configuration:</h2>
+    {% if user.is_authenticated %}
+    <navbar>
+        <ul>
+            <li><a href={% url 'accounts:userConfig' user.id %}>User</a></li>
+            <li><a href={% url 'accounts:profileConfig' user.profile.id %}>Profile</a></li>
+            <li><a href={% url 'accounts:change_password' %}>Change password</a></li>
+        </ul>
+    </mavbar>
+    {% endif %}
+    
+    <br>
+    {% block config %}{% endblock config %}
+{% endblock main %}

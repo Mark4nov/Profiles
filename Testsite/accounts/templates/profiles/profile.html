@@ -3,5 +3,21 @@
 {% block title %}@{{user.username}}'s profile{% endblock title %}
 
 {% block main %}
-    <h1>Hola, {{user.username}}!</h1>
+    <div>
+        <img src="{{profile.profile_picture.url}}">
+        <h2>{{ profile.user.username }}</h2>
+        
+        {% for trait in profile.get_list_of_traits %}
+            <small>{{ trait }}</small>
+        {% endfor %}
+        <small>My current goal is: {{profile.current_goal}}</small>
+
+        <p>Contact with me at: {{profile.user.email}}</p>
+
+        <h3>My history:</h3>
+        <p>{{profile.biography}}</p>
+
+        <p><b>My current job is:</b> {{profile.current_job}}<p/>
+    </div>
 {% endblock main %}
+ 

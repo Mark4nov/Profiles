@@ -1,0 +1,13 @@
+<navbar>
+    <ul>
+        <li><a href={% url 'accounts:profileList' %}>Home</a></li>
+        {% if user.is_authenticated %}
+            <li><a href={% url 'accounts:profile' user.profile.id %}>My profile</a></li>
+            <li><a href={% url 'accounts:userConfig' user.id %}>Account configuration</a></li>
+            <li><a href={% url 'accounts:logout' %}>Logout</a></li>
+        {% else %}
+            <li><a href={% url 'accounts:login' %}>Login</a></li>
+            <li><a href={% url 'accounts:singup' %}>Sign up!</a></li>
+        {% endif %}
+    </ul>
+</narvbar>

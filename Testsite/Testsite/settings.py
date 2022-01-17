@@ -26,6 +26,9 @@ SECRET_KEY = 'django-insecure-$0oawu$b^u6r$2+p4$m4lg336%)yqgb2ppzb!n6rf*2n1q9(m%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
+
 ALLOWED_HOSTS = []
 
 
@@ -124,7 +127,9 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL = '/auth/login/'
+LOGIN_URL = 'accounts:login'
+LOGOUT_REDIRECT_URL = LOGIN_URL
+LOGIN_REDIRECT_URL = 'accounts:profileList'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #this is where the uploaded media will be saved!
 MEDIA_URL = '/media/' #public url to use in the browser

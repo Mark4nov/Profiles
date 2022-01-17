@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <ul>
+        {% for profile in profile_list %}
+            <li><a href={% url 'accounts:profile' profile.id %}>{{profile}}</a></li>
+        {% empty %}
+            <li>Not profiles yet.</li>
+        {% endfor %}
+    </ul>
+{% endblock main %}

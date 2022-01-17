@@ -1,9 +1,10 @@
 # Profile's app
-This is a *practice* app where I'm using the **Django Authentication** system to make views and templates to:
+This is a *practice* app where I'm using the **Django Authentication** system and **generic views** to make an app where users can:
 
 - Sign in
 - Sign up
 - Logout
-- Change passwords
-- Profile pages
-- Show Profiles in a index page
+- Reset passwords
+- See profile pages.
+- Edit they Account and profile data.
+- See a list of the profiles created.
