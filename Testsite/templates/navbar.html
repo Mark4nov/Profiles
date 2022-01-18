@@ -1,13 +1,28 @@
-<navbar>
-    <ul>
-        <li><a href={% url 'accounts:profileList' %}>Home</a></li>
-        {% if user.is_authenticated %}
-            <li><a href={% url 'accounts:profile' user.profile.id %}>My profile</a></li>
-            <li><a href={% url 'accounts:userConfig' user.id %}>Account configuration</a></li>
-            <li><a href={% url 'accounts:logout' %}>Logout</a></li>
-        {% else %}
-            <li><a href={% url 'accounts:login' %}>Login</a></li>
-            <li><a href={% url 'accounts:singup' %}>Sign up!</a></li>
-        {% endif %}
-    </ul>
-</narvbar>
+<nav class="navbar navbar-expand-sm navbar-dark bg-danger">
+    <div class="container-fluid">
+        <!-- Toggle button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!--Navbar items-->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+            {% with request.resolver_match.url_name as url_name %}
+                <!--All access links-->
+                <li class="nav-item"><a class="nav-link {% if url_name == 'profileList' %}active{%endif%}" href={% url 'accounts:profileList' %}>Home</a></li>
+
+                <!--Links that show if a user is loged.-->
+                {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link {% if url_name == 'profile' %}active{%endif%}" href={% url 'accounts:profile' user.profile.id %}>My profile</a></li>
+                    <li class="nav-item"><a class="nav-link {% if url_name == 'userConfig' %}active{%endif%}" href={% url 'accounts:userConfig' user.id %}>Account configuration</a></li>
+                    <li class="nav-item"><a class="nav-link {% if url_name == 'logout' %}active{%endif%}" href={% url 'accounts:logout' %}>Logout</a></li>
+                {% else %}
+                    <li class="nav-item"><a class="nav-link {% if url_name == 'login' %}active{%endif%}" href={% url 'accounts:login' %}>Login</a></li>
+                    <li class="nav-item"><a class="nav-link {% if url_name == 'singup' %}active{%endif%}" href={% url 'accounts:singup' %}>Sign up!</a></li>
+                {% endif %}
+            {% endwith %}
+            </ul>
+        </div>
+    </div>
+</nav>
