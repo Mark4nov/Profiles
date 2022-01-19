@@ -1,12 +1,13 @@
-from django.http.response import HttpResponse
+from pyexpat import model
 from django.urls import reverse
 
 #Importing django views
 from django.views.generic import DetailView, CreateView, UpdateView
 from django.views.generic.list import ListView
+from django.contrib.auth.views import LoginView
 
 # Importing forms
-from .forms import SignUpForm, UserUpdateForm, ProfileUpdateForm
+from .forms import SignUpForm, UserUpdateForm, ProfileUpdateForm, UserAuthenticationForm
 
 #Importing models
 from django.contrib.auth.models import User
@@ -36,8 +37,6 @@ class UserCreateView(CreateView):
     
     def get_success_url(self):
         return reverse('login')
-
-
 
 
 ### Configs views!

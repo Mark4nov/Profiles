@@ -1,21 +1,24 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block main %}
-    {% if form.errors %}
-        <p>Your username and password didn't match. Please try again.</p>
-    {% endif %}
+    <div class="container">
+        <div class="col-12 col-sm-6 col-md-4 offset-sm-3 offset-md-4 mt-3 ">
+            <div class="d-flex justify-content-center">
+                <img src="/media/default.png" alt="profile_picture">
+            </div>
+            
+            <form method="post" action="{% url 'accounts:login' %}">
+                {% csrf_token %}
+                {{ form | crispy}}
 
-    <form method="post" action="{% url 'accounts:login' %}">
-        {% csrf_token %}
-        {% for field in form %}
-            <p>
-                {{field.label_tag}}
-                {{field}}
-            </p>
-        {% endfor %}
-
-        <input type="submit" value="login">
-    </form>
-    <a href={% url 'accounts:password_reset' %}>Reset password</a>
+                <div class="d-grid col-sm-10 col-md-6 mx-auto">
+                    <button type="submit" class="btn btn-warning">Login</button>
+                </div>
+            </form>
+            <hr>
+            <a href={% url 'accounts:password_reset' %}>Reset password</a>
+        </div>
+    </div>
     
 {% endblock main %}
