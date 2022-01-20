@@ -7,7 +7,7 @@ from django.views.generic.list import ListView
 from django.contrib.auth.views import LoginView
 
 # Importing forms
-from .forms import SignUpForm, UserUpdateForm, ProfileUpdateForm, UserAuthenticationForm
+from .forms import SignUpForm, UserUpdateForm, ProfileUpdateForm
 
 #Importing models
 from django.contrib.auth.models import User

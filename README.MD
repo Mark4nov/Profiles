@@ -1,5 +1,5 @@
 # Profile's app
-This is a *practice* app where I'm using the **Django Authentication** system and **generic views** to make an app where users can:
+This is a *practice* app where I'm using the **Django Authentication** system, **generic views**, bootstrap and crispy forms to make an app where users can:
 
 - Sign in
 - Sign up
