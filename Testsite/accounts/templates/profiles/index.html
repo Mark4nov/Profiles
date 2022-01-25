@@ -1,11 +1,26 @@
 {% extends 'base.html' %}
 
 {% block main %}
-    <ul>
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 mt-2">
         {% for profile in profile_list %}
-            <li><a href={% url 'accounts:profile' profile.id %}>{{profile}}</a></li>
+            <div class="col">
+                <div class="card mb-2">
+                    <div class="row g-0">
+                        <div class="col-3 col-md-4">
+                            <img src={{profile.profile_picture.url}} class="card-img-top" alt="Profile image">
+                        </div>
+                        <div class="col-9 col-md-8">
+                            <div class="card-body">
+                                <a href={% url 'accounts:profile' profile.id %}>{{profile}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         {% empty %}
-            <li>Not profiles yet.</li>
+            <p>Not profiles yet.</p>
         {% endfor %}
-    </ul>
+    </div>
+</div>
 {% endblock main %}
